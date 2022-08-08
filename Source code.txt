@@ -1,0 +1,269 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Prak3_Project_2
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+            btnOrder.BackColor = Color.Red;    //Set color of control
+            btnOrder.ForeColor = Color.Yellow; 
+        }
+
+        
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            string sHelp;
+            sHelp = "1. Enter First Name.\n2. Enter desired order number from menu (Only the number).\n" +
+                    "3. Enter meal size (s, m, l).\n4. Click Order.\n5. If order is correct click confirm and proceed to pick-up";
+
+            MessageBox.Show(sHelp);
+        }
+
+        const double Order1 = 50.99;    //Price when small is chosen.
+        const double Order2 = 40.99;
+        const double Order3 = 45.99;
+        const double Order8 = 48.99;
+        const double Order9 = 32.99;
+        const double Order10 = 25.99;
+
+        const double dMed = 1.04;       //Price increase when medium is chosen
+        const double dLar = 1.12;       //Price increase when large is chosen
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+            string sName = txtName.Text;                //3 variables
+            int iOrder = int.Parse(txtMeal.Text);
+            char sSize = char.Parse(txtSize.Text);                                           
+                                                        
+            
+                
+            
+
+            switch (iOrder)
+            {
+                case 1: switch(sSize)
+                        {
+                            case 's':   lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                          + "\nSize of meal: " + sSize
+                                                          + "\n\n- Bic Mac\n- SML.Chips\n- SML.Soda"
+                                                          + "\n\nPrice of meal: " + Order1.ToString("C2");
+                                break;
+
+                            case 'm':   lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                          + "\nSize of meal: " + sSize
+                                                          + "\n\n- Bic Mac\n- Med.Chips\n- Med.Soda"
+                                                          + "\n\nPrice of meal: " + Math.Round(Order1*dMed, 2).ToString("C2"); //Math method 1
+                                break;
+
+                            case 'l':   lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                          + "\nSize of meal: " + sSize
+                                                          + "\n\n- Bic Mac\n- LRG.Chips\n- LRG.Soda"
+                                                          + "\n\nPrice of meal: " + Math.Round(Order1*dLar, 2).ToString("C2");
+                                break;
+                            default:
+                                MessageBox.Show("Invalid Meal size. Please try again or press help.");
+                                break;
+
+                        }
+                        break;
+
+                case 2: switch (sSize)
+                        {
+                            case 's':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- Quarter Pounder\n- SML.Chips\n- SML.Soda"
+                                                  + "\n\nPrice of meal: " + Order2.ToString("C2");
+                                break;
+
+                            case 'm':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- Quarter Pounder\n- Med.Chips\n- Med.Soda"
+                                                  + "\n\nPrice of meal: " + Math.Round(Order2 * dMed, 2).ToString("C2");
+                                break;
+
+                            case 'l':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- Quarter Pounder\n- LRG.Chips\n- LRG.Soda"
+                                                  + "\n\nPrice of meal: " + Math.Round(Order2 * dLar, 2).ToString("C2");
+                                break;
+                            default:
+                                MessageBox.Show("Invalid Meal size. Please try again or press help.");
+                                break;
+
+                        }
+                        break;
+
+                case 3: switch (sSize)
+                        {
+                            case 's':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- Double Quarter Pounder\n- SML.Chips\n- SML.Soda"
+                                                  + "\n\nPrice of meal: " + Order3.ToString("C2");
+                                break;
+
+                            case 'm':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- Double Quarter Pounder\n- Med.Chips\n- Med.Soda"
+                                                  + "\n\nPrice of meal: " + Math.Round(Order3 * dMed, 2).ToString("C2");
+                                break;
+
+                            case 'l':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- Double Quarter Pounder\n- LRG.Chips\n- LRG.Soda"
+                                                  + "\n\nPrice of meal: " + Math.Round(Order3 * dLar, 2).ToString("C2");
+                                break;
+                            default:
+                                MessageBox.Show("Invalid Meal size. Please try again or press help.");
+                                break;
+
+                        }
+                        break;
+                        
+
+                case 8: switch (sSize)
+                        {
+                            case 's':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- Southern Style Chicken\n- SML.Chips\n- SML.Soda"
+                                                  + "\n\nPrice of meal: " + Order8.ToString("C2");
+                                break;
+
+                            case 'm':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- Southern Style Chicken\n- Med.Chips\n- Med.Soda"
+                                                  + "\n\nPrice of meal: " + Math.Round(Order8 * dMed, 2).ToString("C2");
+                                break;
+
+                            case 'l':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- Southern Style Chicken\n- LRG.Chips\n- LRG.Soda"
+                                                  + "\n\nPrice of meal: " + Math.Round(Order8 * dLar, 2).ToString("C2");
+                                break;
+                            default:
+                                MessageBox.Show("Invalid Meal size. Please try again or press help.");
+                                break;
+
+                        }
+                        break;
+
+                case 9: switch (sSize)
+                        {
+                            case 's':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- Chicken Selects\n- SML.Chips\n- SML.Soda"
+                                                  + "\n\nPrice of meal: " + Order9.ToString("C2");
+                                break;
+
+                            case 'm':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- Chicken Selects\n- Med.Chips\n- Med.Soda"
+                                                  + "\n\nPrice of meal: " + Math.Round(Order9 * dMed, 2).ToString("C2");
+                                break;
+
+                            case 'l':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- Chicken Selects\n- LRG.Chips\n- LRG.Soda"
+                                                  + "\n\nPrice of meal: " + Math.Round(Order9 * dLar, 2).ToString("C2");
+                                break;
+                            default:
+                                MessageBox.Show("Invalid Meal size. Please try again or press help.");
+                                break;
+
+                        }
+                        break;
+
+                case 10:switch (sSize)
+                        {
+                            case 's':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- 10pc Chicken Nuggets\n- SML.Chips\n- SML.Soda"
+                                                  + "\n\nPrice of meal: " + Order10.ToString("C2");
+                                break;
+
+                            case 'm':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- 10pc Chicken Nuggets\n- Med.Chips\n- Med.Soda"
+                                                  + "\n\nPrice of meal: " + Math.Round(Order10 * dMed, 2).ToString("C2");
+                                break;
+
+                            case 'l':
+                                lblDetails.Text = "Client Name: " + sName + "\n\nMeal no." + iOrder
+                                                  + "\nSize of meal: " + sSize
+                                                  + "\n\n- 10pc Chicken Nuggets\n- LRG.Chips\n- LRG.Soda"
+                                                  + "\n\nPrice of meal: " + Math.Round(Order10 * dLar, 2).ToString("C2");
+                                break;
+                            default: MessageBox.Show("Invalid Meal size. Please try again or press help.");
+                                break;
+
+                        }
+                        break;
+                    default: MessageBox.Show("Invalid Meal number. Please try again or press help.");
+                        break;
+            }
+
+                btnConfirm.Visible = true;
+                btnClear.Visible = true;
+
+            }
+            catch
+            {
+                MessageBox.Show("Invalid Information, ask for help.");
+            }
+            
+
+            
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtName.Focus();
+
+            txtName.Clear();
+            txtMeal.Clear();
+            txtSize.Clear();
+
+            lblDetails.Text = "";
+            btnConfirm.Visible = false;
+            btnClear.Visible = false;
+
+            
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            int iOrder = int.Parse(txtMeal.Text);
+            string sConfirm = "Your order has been confirmed.\nOrder number: " + Math.Pow(iOrder + 3, 3); //Math method 2
+            MessageBox.Show(sConfirm);
+
+            Application.Exit();
+        }
+    }
+}
